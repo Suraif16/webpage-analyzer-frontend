@@ -20,3 +20,5 @@ export const urlSchema = z.object({
       "URL is too long (max 2048 characters)"
     ),
 });
+
+export type UrlFormData = z.infer<typeof urlSchema>;
