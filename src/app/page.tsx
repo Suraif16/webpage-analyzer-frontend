@@ -31,11 +31,14 @@ export default function Home() {
     resolver: zodResolver(urlSchema),
   });
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+
   const onSubmit = async (data: UrlFormData) => {
     try {
       setLoading(true);
       const response = await axios.post<PageAnalysis>(
-        "http://localhost:8080/analyze",
+        // `${process.env.NEXT_PUBLIC_API_URL}/analyze`,
+        `${apiUrl}/analyze`,
         data
       );
       setAnalysis(response.data);
