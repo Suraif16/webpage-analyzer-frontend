@@ -61,7 +61,7 @@ webpage-analyzer-frontend/
 - Repeated code for UI elements - Created reusable components with props
 - Previous results remaining displayed, when current prompt gives an error - Used proper state clearing and error handling
 
-## Additional Documentation
+## Additional Information
 
 For more details, visit the documentation:  
 [Documentation URL](https://docs.google.com/document/d/18IrcFGb_ur-Axp3A0NRtFfond7CdH8vCVmjz4spNSyg/edit?tab=t.0#heading=h.vwi3xxoqbucr)
