@@ -18,7 +18,7 @@ npm install
 2. Running the Application
 
 ```
-npm run dev
+npx next dev
 ```
 
 Access at: http://localhost:3000
