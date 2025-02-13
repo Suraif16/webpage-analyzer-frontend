@@ -2,6 +2,9 @@
 
 A Next.js application that provides a user interface for analyzing web pages.
 
+Check out the live demo here:  
+[Demo URL]([https://your-demo-url.com](https://drive.google.com/file/d/1yrAjqgbYQOJGVGoXGaxWfuBWoEIzkbwI/view?usp=sharing))
+
 ## Prerequisites
 
 - Node.js 18.x or higher
@@ -47,13 +50,21 @@ webpage-analyzer-frontend/
 └── package.json # Project metadata and dependencies
 ```
 
-Environment Variables
+## Libraries used & their purpose
+- zod - Form validation
+- axios - HTTP client
+- toast - Notifications
+- tailwindcss - Styling
 
-Define necessary environment variables in a .env file:
+## Challenges faced and how I overcome them
+- Responsive design - Used Tailwind's responsive classes
+- Repeated code for UI elements - Created reusable components with props
+- Previous results remaining displayed, when current prompt gives an error - Used proper state clearing and error handling
 
-```
-NEXT_PUBLIC_API_URL=<your-server-url>
-```
+## Additional Documentation
+
+For more details, visit the documentation:  
+[Documentation URL](https://docs.google.com/document/d/18IrcFGb_ur-Axp3A0NRtFfond7CdH8vCVmjz4spNSyg/edit?tab=t.0#heading=h.vwi3xxoqbucr)
 
 ## License
 
