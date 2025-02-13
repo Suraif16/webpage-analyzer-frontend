@@ -3,7 +3,7 @@
 A Next.js application that provides a user interface for analyzing web pages.
 
 Check out demo video of application:  
-[Demo URL](https://drive.google.com/file/d/1yrAjqgbYQOJGVGoXGaxWfuBWoEIzkbwI/view?usp=sharing)
+[Demo URL](https://youtu.be/WPlctqzm0u8)
 
 ## Prerequisites
 
