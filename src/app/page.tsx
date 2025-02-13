@@ -22,6 +22,10 @@ import { LoginFormCard } from "@/components/LoginFormCard";
 export default function Home() {
   const [analysis, setAnalysis] = useState<PageAnalysis | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<{
+    message: string;
+    description: string;
+  } | null>(null);
 
   const {
     register,
@@ -36,16 +40,77 @@ export default function Home() {
   const onSubmit = async (data: UrlFormData) => {
     try {
       setLoading(true);
+      setAnalysis(null);
+      setError(null);
+
       const response = await axios.post<PageAnalysis>(
-        // `${process.env.NEXT_PUBLIC_API_URL}/analyze`,
         `${apiUrl}/analyze`,
         data
       );
       setAnalysis(response.data);
       toast.success("Analysis complete!");
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        toast.error(error.response?.data.message || "Failed to analyze URL");
+    } catch (err) {
+      setAnalysis(null);
+      if (axios.isAxiosError(err)) {
+        if (!err.response) {
+          setError({
+            message: "Service Unavailable",
+            description:
+              "Cannot connect to the analysis service. Please ensure the backend service is running.",
+          });
+          toast.error("Backend service is not available");
+          return;
+        }
+
+        const apiError = err.response.data;
+        setError({
+          message: apiError.message,
+          description: apiError.description,
+        });
+
+        // For specific error messages, don't display toast notifications
+        switch (err.response.status) {
+          case 400:
+            setError({
+              message: "Invalid URL format",
+              description: "Please check the URL format and try again.",
+            });
+            break;
+          case 404:
+            setError({
+              message: "Domain not found",
+              description: "Please verify the URL.",
+            });
+            break;
+          case 502:
+            setError({
+              message: "Could not connect to the website",
+              description: "The website may be down or unreachable.",
+            });
+            break;
+          case 503:
+            setError({
+              message: "The website is not accessible",
+              description: "Please try again later.",
+            });
+            break;
+          case 504:
+            setError({
+              message: "Request timed out",
+              description: "The request took too long. Please try again.",
+            });
+            break;
+          default:
+            setError({
+              message: "Failed to analyze URL",
+              description: "Something went wrong. Please try again.",
+            });
+        }
+      } else {
+        setError({
+          message: "Error",
+          description: "An unexpected error occurred. Please try again.",
+        });
       }
     } finally {
       setLoading(false);
@@ -84,6 +149,11 @@ export default function Home() {
 
         {loading ? (
           <LoadingSkeleton />
+        ) : error ? (
+          <div className="text-red-500 bg-red-100 p-4 rounded-lg">
+            <h2 className="font-semibold">{error.message}</h2>
+            <p>{error.description}</p>
+          </div>
         ) : (
           analysis && (
             <div className={`${cardStyles.container} ${fadeIn}`}>
