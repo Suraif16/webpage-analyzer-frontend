@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Page Analyzer Frontend
 
-## Getting Started
+A Next.js application that provides a user interface for analyzing web pages.
 
-First, run the development server:
+Check out demo video of application:  
+[Demo URL](https://drive.google.com/file/d/1yrAjqgbYQOJGVGoXGaxWfuBWoEIzkbwI/view?usp=sharing)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Prerequisites
+
+- Node.js 18.x or higher
+- npm 9.x or higher
+
+## Setup
+
+1. Install dependencies:
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Running the Application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+npx next dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Access at: http://localhost:3000
 
-## Learn More
+Production build:
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
+```
+webpage-analyzer-frontend/
+├── src/
+│ ├── app/ # Next.js App Router
+│ ├── components/ # Reusable React components
+│ ├── styles/ # Styling utilities
+│ ├── types/ # TypeScript definitions
+│ └── lib/ # Utility functions
+├── public/ # Static files
+├── .env # Environment variables
+└── package.json # Project metadata and dependencies
+```
 
-## Deploy on Vercel
+## Libraries used & their purpose
+- zod - Form validation
+- axios - HTTP client
+- toast - Notifications
+- tailwindcss - Styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Challenges faced and how I overcome them
+- Responsive design - Used Tailwind's responsive classes
+- Repeated code for UI elements - Created reusable components with props
+- Previous results remaining displayed, when current prompt gives an error - Used proper state clearing and error handling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Additional Information
+
+For more details, visit the documentation:  
+[Documentation URL](https://docs.google.com/document/d/18IrcFGb_ur-Axp3A0NRtFfond7CdH8vCVmjz4spNSyg/edit?tab=t.0#heading=h.vwi3xxoqbucr)
+
+## License
+
+This project is licensed under the MIT License.
