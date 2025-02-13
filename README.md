@@ -33,7 +33,8 @@ npm run build
 npm start
 ```
 
-Project Structure
+## Project Structure
+```
 webpage-analyzer-frontend/
 ├── src/
 │ ├── app/ # Next.js App Router
@@ -44,6 +45,7 @@ webpage-analyzer-frontend/
 ├── public/ # Static files
 ├── .env # Environment variables
 └── package.json # Project metadata and dependencies
+```
 
 Environment Variables
 
