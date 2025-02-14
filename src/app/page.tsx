@@ -53,12 +53,7 @@ export default function Home() {
       setAnalysis(null);
       if (axios.isAxiosError(err)) {
         if (!err.response) {
-          setError({
-            message: "Service Unavailable",
-            description:
-              "Cannot connect to the analysis service. Please ensure the backend service is running.",
-          });
-          toast.error("Backend service is not available");
+          toast.error("Server unavailable");
           return;
         }
 
@@ -90,7 +85,7 @@ export default function Home() {
             break;
           case 503:
             setError({
-              message: "The website is not accessible",
+              message: "The site can’t be reached",
               description: "Please try again later.",
             });
             break;
